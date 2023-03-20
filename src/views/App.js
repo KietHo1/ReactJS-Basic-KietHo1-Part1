@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Nav from "./Nav/Nav";
 import Home from "./Example/Home";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 /**
  * 2 components: class component / function component ( function, arrow)
@@ -22,17 +22,11 @@ function App() {
         <header className="App-header">
           <Nav />
           <img src={logo} className="App-logo" alt="logo" />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/todo">
-              <ListTodo />
-            </Route>
-            <Route path="/about">
-              <MyComponent />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/todo" exact element={<ListTodo />} />
+            <Route path="/about" exact element={<MyComponent />} />
+          </Routes>
         </header>
 
         <ToastContainer
