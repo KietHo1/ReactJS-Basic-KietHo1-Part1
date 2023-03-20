@@ -1,5 +1,6 @@
 import React from "react";
 import ChildComponent from "./ChildComponent";
+
 class MyComponent extends React.Component {
   //key:value
   state = {
@@ -23,7 +24,7 @@ class MyComponent extends React.Component {
     });
   };
   handleSubmit = (event) => {
-    event.preventDefault(); //Chống reload trang khi nhấn nút submit
+    event.preventDefault();
     console.log(">>> check data input: ", this.state);
   };
   //re-render
@@ -51,9 +52,8 @@ class MyComponent extends React.Component {
           <br />
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
         </form>
-        <ChildComponent name={"child one"} />
-        <ChildComponent name={"child two"} />
-        <ChildComponent name={"child three"} />
+
+        <ChildComponent name={"ERIC"} age={"25"} />
       </>
     );
   }
