@@ -23,7 +23,6 @@ class AddComponent extends React.Component {
       return;
     }
     console.log(">>> check data input: ", this.state);
-    //truyền data từ component con sang component cha
     this.props.addNewJob({
       id: Math.floor(Math.random() * 1001),
       title: this.state.title,
@@ -54,6 +53,7 @@ class AddComponent extends React.Component {
           value={this.state.salary}
           onChange={(event) => this.handleChangeLastName(event)}
         />
+
         <br />
         <br />
         <input type="submit" onClick={(event) => this.handleSubmit(event)} />

@@ -11,11 +11,23 @@ class MyComponent extends React.Component {
       { id: "abcJob3", title: "Project managers", salary: "1000" },
     ],
   };
-  //Thêm hàm add new job
+
   addNewJob = (job) => {
     console.log("check job from parent: ", job);
+    // let currenJobs = this.state.arrJobs;
+    // currenJobs.push(job)
+
     this.setState({
       arrJobs: [...this.state.arrJobs, job],
+      // arrJobs: currenJobs
+    });
+  };
+  //Thêm hàm xóa một job
+  deleteAJob = (job) => {
+    let currenJobs = this.state.arrJobs;
+    currenJobs = currenJobs.filter((item) => item.id !== job.id);
+    this.setState({
+      arrJobs: currenJobs,
     });
   };
 
@@ -25,13 +37,16 @@ class MyComponent extends React.Component {
     */
 
   //re-render
-  // hàm addnewJob có tham số truyền vào nên không để dấu () và không dùng arrow function
   render() {
     console.log(">>> call render: ", this.state);
     return (
       <>
         <AddComponent addNewJob={this.addNewJob} />
-        <ChildComponent arrJobs={this.state.arrJobs} />
+
+        <ChildComponent
+          arrJobs={this.state.arrJobs}
+          deleteAJob={this.deleteAJob}
+        />
       </>
     );
   }
