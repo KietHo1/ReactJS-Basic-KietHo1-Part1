@@ -6,6 +6,12 @@ class MyComponent extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    arrJobs: [
+      //tạo một array mới
+      { id: "abcJob1", title: "Developers", salary: "500 $" },
+      { id: "abcJob2", title: "Testers", salary: "400 $" },
+      { id: "abcJob3", title: "Project managers", salary: "1000 $" },
+    ],
   };
 
   /* 
@@ -53,7 +59,12 @@ class MyComponent extends React.Component {
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
         </form>
 
-        <ChildComponent name={"ERIC"} age={"25"} />
+        <ChildComponent
+          name={this.state.firstName} //truyền prop từ component cha sang component con
+          age={"25"}
+          address={"Ha noi"}
+          arrJobs={this.state.arrJobs} //truyền prop từ component cha sang component con
+        />
       </>
     );
   }
