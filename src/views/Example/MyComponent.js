@@ -3,8 +3,8 @@ import React from "react";
 class MyComponent extends React.Component {
   //key:value
   state = {
-    name: "",
-    channel: "Hoi Dan IT",
+    firstName: "",
+    lastName: "",
   };
 
   /* 
@@ -12,35 +12,45 @@ class MyComponent extends React.Component {
     fragment
     */
 
-  handleOnChangeName = (event) => {
-    // this.state.name = event.target.value;  //bad code
-    //merge
+  handleChangeFirstName = (event) => {
     this.setState({
-      name: event.target.value,
+      firstName: event.target.value,
     });
   };
-
-  handleClickButton = () => {
-    alert("click me");
+  handleChangeLastName = (event) => {
+    this.setState({
+      lastName: event.target.value,
+    });
   };
-
+  handleSubmit = (event) => {
+    event.preventDefault(); //Chống reload trang khi nhấn nút submit
+    console.log(">>> check data input: ", this.state);
+  };
   //re-render
   render() {
     console.log(">>> call render: ", this.state);
     return (
       <>
-        <div className="first">
+        <form>
+          <label htmlFor="fname">First name:</label>
+          <br />
           <input
-            value={this.state.name}
             type="text"
-            onChange={(event) => this.handleOnChangeName(event)}
+            value={this.state.firstName}
+            onChange={(event) => this.handleChangeFirstName(event)}
           />
-          My name is {this.state["name"]}
-        </div>
-        <div className="second">My youtube channel : {this.state.channel}</div>
-        <div className="third">
-          <button onClick={() => this.handleClickButton()}>Click me</button>
-        </div>
+          <br />
+          <label htmlFor="lname">Last name:</label>
+          <br />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={(event) => this.handleChangeLastName(event)}
+          />
+          <br />
+          <br />
+          <input type="submit" onClick={(event) => this.handleSubmit(event)} />
+        </form>
       </>
     );
   }
