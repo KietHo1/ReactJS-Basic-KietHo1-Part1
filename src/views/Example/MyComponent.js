@@ -7,10 +7,9 @@ class MyComponent extends React.Component {
     firstName: "",
     lastName: "",
     arrJobs: [
-      //tạo một array mới
-      { id: "abcJob1", title: "Developers", salary: "500 $" },
-      { id: "abcJob2", title: "Testers", salary: "400 $" },
-      { id: "abcJob3", title: "Project managers", salary: "1000 $" },
+      { id: "abcJob1", title: "Developers", salary: "500" },
+      { id: "abcJob2", title: "Testers", salary: "400" },
+      { id: "abcJob3", title: "Project managers", salary: "1000" },
     ],
   };
 
@@ -60,10 +59,10 @@ class MyComponent extends React.Component {
         </form>
 
         <ChildComponent
-          name={this.state.firstName} //truyền prop từ component cha sang component con
+          name={this.state.firstName}
           age={"25"}
           address={"Ha noi"}
-          arrJobs={this.state.arrJobs} //truyền prop từ component cha sang component con
+          arrJobs={this.state.arrJobs}
         />
       </>
     );
