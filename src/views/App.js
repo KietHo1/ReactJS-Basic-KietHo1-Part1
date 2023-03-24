@@ -4,7 +4,7 @@ import MyComponent from "./Example/MyComponent.js";
 import ListTodo from "./Todos/ListTodo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import ListUser from "./Users/ListUser";
 import Nav from "./Nav/Nav";
 import Home from "./Example/Home";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -26,6 +26,7 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/todo" exact element={<ListTodo />} />
             <Route path="/about" exact element={<MyComponent />} />
+            <Route path="/user" exact element={<ListUser />} />
           </Routes>
         </header>
 
