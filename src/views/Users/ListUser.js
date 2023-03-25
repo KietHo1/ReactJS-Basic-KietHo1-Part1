@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import "./ListUser.scss";
-
 class ListUser extends React.Component {
   state = {
     listUsers: [],
@@ -12,7 +11,8 @@ class ListUser extends React.Component {
       listUsers: res && res.data && res.data.data ? res.data.data : [],
     });
   }
-
+  //Qua React season 2 để tìm hiểu thêm
+  handleViewDetailUser = (user) => {};
   render() {
     let { listUsers } = this.state;
     return (
@@ -23,7 +23,11 @@ class ListUser extends React.Component {
             listUsers.length > 0 &&
             listUsers.map((item, index) => {
               return (
-                <div className="child" key={item.id}>
+                <div
+                  className="child"
+                  key={item.id}
+                  onClick={() => this.handleViewDetailUser(item)}
+                >
                   {index + 1} - {item.first_name} {item.last_name}
                 </div>
               );
