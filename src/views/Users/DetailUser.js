@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import ListUser from "./ListUser";
+// import ListUser from "./ListUser";
 class DetailUser extends React.Component {
   state = {
     user: {},
